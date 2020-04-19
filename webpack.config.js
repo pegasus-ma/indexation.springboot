@@ -3,6 +3,9 @@ var webpack = require('webpack');
 
 module.exports = (env, mode = "") => ({
     entry: ['./src/main/js/index.js'],
+    devtool: 'sourcemaps',
+    cache: true,
+    mode: 'development',
     output: {
         path: __dirname,
         filename: './target/classes/static/built/bundle.js'
