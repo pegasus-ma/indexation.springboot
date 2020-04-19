@@ -2,7 +2,9 @@ import * as actionTypes from 'bucares/constants/actionTypes';
 
 const initialState = {
     appInfo: null,
-    appInfoLoading: false
+    appInfoLoading: false,
+	inputUrl: 'Saisir votre URL',
+	inputWord: 'Saisir votre mot clé'
 };
 
 const appReducer = (state, action) =>
