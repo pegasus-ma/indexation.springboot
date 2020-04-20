@@ -25,3 +25,17 @@ export const getAppInfo = () => (
         })
     }
 );
+
+export const setInputUrl = (value) => ({
+	type: actionTypes.SET_INPUT_URL,
+	value
+});
+
+export const setInputWord = (value) => ({
+    type: actionTypes.SET_INPUT_WORD,
+	value
+});
+
+export const confirmCheck = () => ({
+    type: actionTypes.CONFIRM_CHECK
+});
