@@ -7,7 +7,8 @@ const initialState = {
     appInfoLoading: false,
 	inputUrl: '',
 	inputWord: '',
-	returnMsg: ''
+	apiContentCheckData: null,
+	apiContentCheckLoading: false
 };
 
 const appReducer = (state, action) => {
@@ -52,19 +53,22 @@ const appReducer = (state, action) => {
             break;
 		}
 		
-		case actionTypes.CONFIRM_CHECK: {
-			// Check the URL input's format
-			// TODO HMA
-
-			axios.post(POST_API_CONTENT_CHECK, {"url": state.inputUrl, "word": state.inputWord}).then(response => {
-				// newState.inputUrl = '';
-				// newState.inputWord = '';
-				newState.returnMsg = response.data.state;
-        	}).catch(() => {
-				newState.returnMsg = 'Server internal error';
-        	})
+		case actionTypes.SET_POST_API_CONTENT_CHECK_PENDING: {
+            newState.apiContentCheckLoading = true;
             break;
         }
+
+        case actionTypes.SET_POST_API_CONTENT_CHECK_DATA: {
+            newState.apiContentCheckLoading = false;
+            newState.apiContentCheckData = action.value.state;
+            break;
+        }
+
+        case actionTypes.SET_POST_API_CONTENT_CHECK_REJECTED: {
+            newState.apiContentCheckLoading = false;
+            newState.apiContentCheckData = action.value;
+            break;
+		}
 
 	}
 	

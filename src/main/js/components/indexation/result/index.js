@@ -9,9 +9,7 @@ class IndexationResult extends Component {
 
 		return (
 			<div style={{ margin: '10px' }}>
-				<p>{(this.props.returnMsg === '' || typeof this.props.returnMsg === 'undefined') 
-					? this.props.returnMsg 
-					: 'Result : ' + this.props.returnMsg}</p>
+				<p>{this.props.apiContentCheckData}</p>
 			</div>
 		)
 	}
@@ -21,7 +19,8 @@ class IndexationResult extends Component {
 function mapStateToProps(state) {
     return {
 		// returnMsg: state.returnMsg
-		returnMsg: state["_root"]["entries"][0][1]['returnMsg'],
+		// TODO HMA
+		apiContentCheckData: state["_root"]["entries"][0][1]['apiContentCheckData'],
 	}
 }
 

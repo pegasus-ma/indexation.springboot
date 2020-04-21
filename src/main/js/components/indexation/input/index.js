@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 import store from 'bucares/store'
 import * as actionTypes from 'bucares/constants/actionTypes'
-import {setInputUrl, setInputWord, confirmCheck} from "bucares/actions/appActions";
+import {setInputUrl, setInputWord, confirmCheck, postApiContentCheck} from "bucares/actions/appActions";
 import { connect } from "react-redux";
-import {bindActionCreators, compose} from "redux";
 
 class IndexationInput extends Component {
 
@@ -34,11 +33,11 @@ class IndexationInput extends Component {
 					</tr>
 					<tr>
 						<td>
-							<button type='primary' onClick={this.props.clickButtonCheck}>Check</button>
+							{/* Attention : onClick in React is special, we should use () => function instead of the function only */}
+							<button type='primary' onClick={() => this.props.clickButtonCheck(this.props.inputUrl, this.props.inputWord)} disabled={this.props.apiContentCheckLoading}>Check</button>
 						</td>
 					</tr>
 				</table>
-
 			</div>
 		)
 	}
@@ -47,9 +46,13 @@ class IndexationInput extends Component {
 function mapStateToProps(state) {
     return {
 		// inputUrl: state.inputUrl,
+		// TODO HMA
 		inputUrl: state["_root"]["entries"][0][1]['inputUrl'],
 		// inputWord: state.inputWord
-		inputWord: state["_root"]["entries"][0][1]['inputWord']
+		// TODO HMA
+		inputWord: state["_root"]["entries"][0][1]['inputWord'],
+		//
+		apiContentCheckLoading: state["_root"]["entries"][0][1]['apiContentCheckLoading']
 	}
 }
 
@@ -63,9 +66,9 @@ function mapDispatchToProps(dispatch) {
 			const action = setInputWord(e.target.value)
 			dispatch(action)					 
 		},
-		clickButtonCheck() {
-			const action = confirmCheck()
-			store.dispatch(action)
+		clickButtonCheck(url, word) {
+			const action = postApiContentCheck(url, word)
+			dispatch(action)
 		}
 	}
 }
