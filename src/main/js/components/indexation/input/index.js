@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import store from 'bucares/store'
 import * as actionTypes from 'bucares/constants/actionTypes'
-import {setInputUrl, setInputWord, confirmCheck, postApiContentCheck} from "bucares/actions/appActions";
+import {setInputUrl, setInputWord, confirmCheck, postApiContentCheck} from "bucares/actions/apiActions";
 import { connect } from "react-redux";
 
 class IndexationInput extends Component {
