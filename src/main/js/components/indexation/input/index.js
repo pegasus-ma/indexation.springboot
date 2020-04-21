@@ -25,6 +25,7 @@ class IndexationInput extends Component {
 						<td>
 							<input type='text'
 								placeholder='Saisir votre mot clé'
+								maxlength='15'
 								style={{ width: '250px' }}
 								onChange={this.props.changeInputWord}
 								value={this.props.inputWord}

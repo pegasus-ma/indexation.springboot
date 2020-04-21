@@ -36,6 +36,7 @@
     "prop-types": "15.7.2",
     "react-form-validator-core": "0.6.4",
     "react-material-ui-form-validator": "2.0.9",
-    "redux-devtools-extension": "2.13.8"
+    "redux-devtools-extension": "2.13.8",
+    "validator": "^13.0.0"
   }
 }

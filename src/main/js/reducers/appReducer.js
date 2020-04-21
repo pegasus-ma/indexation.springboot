@@ -62,7 +62,13 @@ const appReducer = (state, action) => {
             newState.apiContentCheckLoading = false;
             newState.apiContentCheckData = action.value.state;
             break;
-        }
+		}
+		
+		case actionTypes.SET_POST_API_CONTENT_CHECK_INVALID_URL: {
+            newState.apiContentCheckLoading = false;
+            newState.apiContentCheckData = action.value;
+            break;
+		}
 
         case actionTypes.SET_POST_API_CONTENT_CHECK_REJECTED: {
             newState.apiContentCheckLoading = false;

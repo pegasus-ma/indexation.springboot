@@ -1,6 +1,7 @@
 import axios from "axios";
 import * as actionTypes from 'bucares/constants/actionTypes';
 import {APP_VERSION_URL, POST_API_CONTENT_CHECK, GET_API_CONTENT, DELETE_API_CONTENT} from "bucares/constants/url";
+import validator from 'validator'
 
 /////////////////////////// Part APP Version
 
@@ -50,6 +51,11 @@ export const setApiContentCheckData = (data) => ({
     value: data
 });
 
+export const setApiContentCheckInvalidUrl = () => ({
+	type: actionTypes.SET_POST_API_CONTENT_CHECK_INVALID_URL,
+	value: "The URL is invalid"
+});
+
 export const setApiContentCheckRejected = () => ({
 	type: actionTypes.SET_POST_API_CONTENT_CHECK_REJECTED,
 	value: "Server internal error"
@@ -57,11 +63,15 @@ export const setApiContentCheckRejected = () => ({
 
 export const postApiContentCheck = (url, word) => (
     (dispatch) => {
-		dispatch(setApiContentCheckPending());
-        return axios.post(POST_API_CONTENT_CHECK, {"url": url, "word": word}).then(response => {
-            dispatch(setApiContentCheckData(response.data));
-        }).catch(() => {
-            dispatch(setApiContentCheckRejected());
-        })
+		if (!validator.isURL(url)) {
+			dispatch(setApiContentCheckInvalidUrl());
+		} else {
+			dispatch(setApiContentCheckPending());
+			return axios.post(POST_API_CONTENT_CHECK, {"url": url, "word": word}).then(response => {
+				dispatch(setApiContentCheckData(response.data));
+			}).catch(() => {
+				dispatch(setApiContentCheckRejected());
+			})
+		}
     }
 );
