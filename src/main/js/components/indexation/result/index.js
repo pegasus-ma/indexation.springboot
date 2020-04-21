@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import store from 'bucares/store'
 import { connect } from "react-redux";
+import {bindActionCreators, compose} from "redux";
 
 class IndexationResult extends Component {
 

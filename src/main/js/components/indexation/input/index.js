@@ -18,6 +18,7 @@ class IndexationInput extends Component {
 								placeholder='Saisir votre URL'
 								style={{ width: '250px' }}
 								onChange={this.props.changeInputUrl}
+								value={this.props.inputUrl}
 							/>
 						</td>
 					</tr>
@@ -27,6 +28,7 @@ class IndexationInput extends Component {
 								placeholder='Saisir votre mot clé'
 								style={{ width: '250px' }}
 								onChange={this.props.changeInputWord}
+								value={this.props.inputWord}
 							/>
 						</td>
 					</tr>
@@ -69,5 +71,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(IndexationInput);
-
-// export default connect(mapStateToProps, mapDispatchToProps)(IndexationInput);

@@ -1,10 +1,12 @@
 import * as actionTypes from 'bucares/constants/actionTypes';
+import axios from "axios";
+import {POST_API_CONTENT_CHECK, GET_API_CONTENT, DELETE_API_CONTENT} from "bucares/constants/url";
 
 const initialState = {
     appInfo: null,
     appInfoLoading: false,
-	inputUrl: 'Saisir votre URL',
-	inputWord: 'Saisir votre mot clé',
+	inputUrl: '',
+	inputWord: '',
 	returnMsg: ''
 };
 
@@ -54,19 +56,13 @@ const appReducer = (state, action) => {
 			// Check the URL input's format
 			// TODO HMA
 
-			if (true) {
-				// Call the api
-				// TODO HMA
-				if (false) {
-					newState.inputUrl = '';
-					newState.inputWord = '';
-					newState.returnMsg = 'accepted';
-				} else {
-					newState.returnMsg = 'Internal error of the API, please retry.';
-				}
-			} else {
-				newState.returnMsg = 'The format of the URL is wrong.';
-			}
+			axios.post(POST_API_CONTENT_CHECK, {"url": state.inputUrl, "word": state.inputWord}).then(response => {
+				// newState.inputUrl = '';
+				// newState.inputWord = '';
+				newState.returnMsg = response.data.state;
+        	}).catch(() => {
+				newState.returnMsg = 'Server internal error';
+        	})
             break;
         }
 
