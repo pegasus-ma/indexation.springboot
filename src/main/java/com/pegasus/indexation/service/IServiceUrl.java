@@ -1,8 +1,8 @@
-package com.bucares.boilerplate.service;
+package com.pegasus.indexation.service;
 
 import java.util.List;
 
-import com.bucares.boilerplate.entity.Url;
+import com.pegasus.indexation.entity.Url;
 
 public interface IServiceUrl {
     Url save(Url url);

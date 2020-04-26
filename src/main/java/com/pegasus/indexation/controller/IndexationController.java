@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.controller;
+package com.pegasus.indexation.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bucares.boilerplate.entity.Url;
-import com.bucares.boilerplate.model.DeleteRequest;
-import com.bucares.boilerplate.model.DeleteResponse;
-import com.bucares.boilerplate.model.GetResponse;
-import com.bucares.boilerplate.model.PostRequest;
-import com.bucares.boilerplate.model.PostResponse;
-import com.bucares.boilerplate.service.IServiceUrl;
-import com.bucares.boilerplate.util.SslUtil;
+import com.pegasus.indexation.entity.Url;
+import com.pegasus.indexation.model.DeleteRequest;
+import com.pegasus.indexation.model.DeleteResponse;
+import com.pegasus.indexation.model.GetResponse;
+import com.pegasus.indexation.model.PostRequest;
+import com.pegasus.indexation.model.PostResponse;
+import com.pegasus.indexation.service.IServiceUrl;
+import com.pegasus.indexation.util.SslUtil;
 
 /**
  * 

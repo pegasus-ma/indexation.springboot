@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.util;
+package com.pegasus.indexation.util;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;

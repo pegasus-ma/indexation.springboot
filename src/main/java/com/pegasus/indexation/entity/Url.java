@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.entity;
+package com.pegasus.indexation.entity;
 
 import java.io.Serializable;
 

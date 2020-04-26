@@ -1,9 +1,9 @@
-package com.bucares.boilerplate.dao;
+package com.pegasus.indexation.dao;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-import com.bucares.boilerplate.entity.Url;
+import com.pegasus.indexation.entity.Url;
 
 
 @Repository

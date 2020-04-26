@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.config;
+package com.pegasus.indexation.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

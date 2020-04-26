@@ -1,6 +1,6 @@
-package com.bucares.boilerplate.controller;
+package com.pegasus.indexation.controller;
 
-import static com.bucares.boilerplate.constants.URLConstants.APP_VERSION_URL;
+import static com.pegasus.indexation.constants.URLConstants.APP_VERSION_URL;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.service;
+package com.pegasus.indexation.service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,8 +8,8 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bucares.boilerplate.dao.IDAOUrl;
-import com.bucares.boilerplate.entity.Url;
+import com.pegasus.indexation.dao.IDAOUrl;
+import com.pegasus.indexation.entity.Url;
 
 
 @Service

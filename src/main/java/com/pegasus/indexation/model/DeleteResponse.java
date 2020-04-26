@@ -1,4 +1,4 @@
-package com.bucares.boilerplate.model;
+package com.pegasus.indexation.model;
 
 import java.io.Serializable;
 import java.util.List;
