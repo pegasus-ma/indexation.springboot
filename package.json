@@ -5,7 +5,13 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack --config webpack.js -p --progress --colors"
+    "build": "webpack --config webpack.config.js -p --progress --colors",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+		"^bucares(.*)$": "<rootDir>/src/main/js$1"
+	}
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
@@ -16,6 +22,7 @@
     "babel-loader": "8.0.6",
     "css-loader": "3.0.0",
     "immutable": "3.8.2",
+    "jest": "^25.4.0",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-redux": "7.1.0",

@@ -24,7 +24,11 @@ module.exports = (env, mode = "") => ({
                 options: {
                     cacheDirectory: true
                 }
-            }
+			},
+			{
+				test: /\.css$/i,
+				use: ['css-loader'],
+			}
         ]
     },
     plugins: [
