@@ -3,6 +3,8 @@ import store from 'bucares/store'
 import * as actionTypes from 'bucares/constants/actionTypes'
 import {setInputUrl, setInputWord, confirmCheck, postApiContentCheck} from "bucares/actions/apiActions";
 import { connect } from "react-redux";
+import {Button, Input} from '@material-ui/core'
+
 
 class IndexationInput extends Component {
 
@@ -14,7 +16,7 @@ class IndexationInput extends Component {
 					<tbody>
 						<tr>
 							<td>
-								<input type='text'
+								<Input type='text'
 									placeholder='Saisir votre URL'
 									style={{ width: '250px' }}
 									onChange={this.props.changeInputUrl}
@@ -24,7 +26,7 @@ class IndexationInput extends Component {
 						</tr>
 						<tr>
 							<td>
-								<input type='text'
+								<Input type='text'
 									placeholder='Saisir votre mot clé'
 									maxLength='15'
 									style={{ width: '250px' }}
@@ -36,7 +38,7 @@ class IndexationInput extends Component {
 						<tr>
 							<td>
 								{/* Attention : onClick in React is special, we should use () => function instead of the function only */}
-								<button type='primary' onClick={() => this.props.clickButtonCheck(this.props.inputUrl, this.props.inputWord)} disabled={this.props.apiContentCheckLoading}>Check</button>
+								<Button color='primary' onClick={() => this.props.clickButtonCheck(this.props.inputUrl, this.props.inputWord)} disabled={this.props.apiContentCheckLoading}>Check</Button>
 							</td>
 						</tr>
 					</tbody>
