@@ -8,7 +8,7 @@ import IndexationResult from "bucares/components/indexation/result";
 
 render(
     <Provider store={store}>
-        <AppVersion/>
+        {/* <AppVersion/> */}
         <IndexationInput/>
 		<IndexationResult/>
     </Provider>,
