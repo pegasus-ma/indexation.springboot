@@ -17,6 +17,28 @@ describe('appReducer', () => {
 		expect(appReducer(undefined, {})).toEqual(initState)
 	});
 
+	it('actionTypes.SET_APP_INFO_PENDING : ', () => {
+		expect(appReducer(store.getState(), {
+			type: actionTypes.SET_APP_INFO_PENDING
+		}).appInfoLoading
+		).toEqual(true)
+	});
+
+	it('actionTypes.SET_APP_INFO_DATA : ', () => {
+		expect(appReducer(store.getState(), {
+			type: actionTypes.SET_APP_INFO_DATA,
+			payload: '0-SNAPSHOT'
+		}).appInfo
+		).toEqual('0-SNAPSHOT')
+	});
+
+	it('actionTypes.SET_APP_INFO_REJECTED : ', () => {
+		expect(appReducer(store.getState(), {
+			type: actionTypes.SET_APP_INFO_REJECTED
+		}).appInfoLoading
+		).toEqual(false)
+	});
+
 	it('actionTypes.SET_INPUT_URL : ', () => {
 		expect(appReducer(store.getState(), {
 			type: actionTypes.SET_INPUT_URL,

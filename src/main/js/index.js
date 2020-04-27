@@ -12,5 +12,5 @@ render(
         <IndexationInput/>
 		<IndexationResult/>
     </Provider>,
-    document.getElementById('react')
+    document.getElementById('react') || document.createElement('div')
 );
