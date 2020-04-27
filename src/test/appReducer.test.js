@@ -1,22 +1,24 @@
 import * as actionTypes from 'bucares/constants/actionTypes';
-import rootReducer from "bucares/reducers";
+import appReducer from "bucares/reducers/appReducer";
+import store from 'bucares/store'
 
-describe('rootReducer', () => {
+const initState = {
+	appInfo: null,
+	appInfoLoading: false,
+	inputUrl: '',
+	inputWord: '',
+	apiContentCheckData: null,
+	apiContentCheckLoading: false
+}
 
-	it('actionTypes.SET_INPUT_URL : ', () => {
-		expect(rootReducer(undefined, {})).toEqual(
-			{
-				appInfo: null,
-				appInfoLoading: false,
-				inputUrl: '',
-				inputWord: '',
-				apiContentCheckData: null,
-				apiContentCheckLoading: false
-			})
+describe('appReducer', () => {
+
+	it('default : ', () => {
+		expect(appReducer(undefined, {})).toEqual(initState)
 	});
 
 	it('actionTypes.SET_INPUT_URL : ', () => {
-		expect(rootReducer([], {
+		expect(appReducer(store.getState(), {
 			type: actionTypes.SET_INPUT_URL,
 			value: 'https://www.lefigaro.fr'
 		}).inputUrl
@@ -24,7 +26,7 @@ describe('rootReducer', () => {
 	});
 
 	it('actionTypes.SET_INPUT_WORD : ', () => {
-		expect(rootReducer([], {
+		expect(appReducer(store.getState(), {
 			type: actionTypes.SET_INPUT_WORD,
 			value: 'France'
 		}).inputWord
@@ -32,18 +34,35 @@ describe('rootReducer', () => {
 	});
 
 	it('actionTypes.SET_POST_API_CONTENT_CHECK_PENDING : ', () => {
-		expect(rootReducer([], {
+		expect(appReducer(store.getState(), {
 			type: actionTypes.SET_POST_API_CONTENT_CHECK_PENDING
 		}).apiContentCheckLoading
 		).toEqual(true)
 	});
 
 	it('actionTypes.SET_POST_API_CONTENT_CHECK_DATA : ', () => {
-		expect(rootReducer([], {
+		expect(appReducer(store.getState(), {
 			type: actionTypes.SET_POST_API_CONTENT_CHECK_DATA,
 			value: {state : 'accecpted'}
-		}).value.state
+		}).apiContentCheckData
 		).toEqual('accecpted')
 	});
+
+	it('actionTypes.SET_POST_API_CONTENT_CHECK_INVALID_URL : ', () => {
+		expect(appReducer(store.getState(), {
+			type: actionTypes.SET_POST_API_CONTENT_CHECK_INVALID_URL,
+			value: 'The URL is invalid'
+		}).apiContentCheckData
+		).toEqual('The URL is invalid')
+	});
+
+	it('actionTypes.SET_POST_API_CONTENT_CHECK_REJECTED : ', () => {
+		expect(appReducer(store.getState(), {
+			type: actionTypes.SET_POST_API_CONTENT_CHECK_REJECTED,
+			value: 'Server internal error'
+		}).apiContentCheckData
+		).toEqual('Server internal error')
+	});
+
 
 })
