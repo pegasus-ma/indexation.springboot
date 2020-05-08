@@ -23,7 +23,7 @@ public class GetResponseTest {
 		List<String> urlsFound = new ArrayList<String>();
 		urlsFound.add(urlString);
 		getResponse.setUrlsFound(urlsFound);
-		assertSame("Failure", urlString, getResponse.getUrlsFound());
+		assertSame("Failure", urlsFound, getResponse.getUrlsFound());
 	}
 
 	@Test
@@ -32,7 +32,7 @@ public class GetResponseTest {
 		List<String> urlsFound = new ArrayList<String>();
 		urlsFound.add(urlString);
 		getResponse.setUrlsFound(urlsFound);
-		assertSame("Failure", urlString, getResponse.getUrlsFound());
+		assertSame("Failure", urlsFound, getResponse.getUrlsFound());
 	}
 
 }

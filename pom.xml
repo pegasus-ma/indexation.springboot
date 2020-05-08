@@ -30,11 +30,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -80,6 +80,16 @@
 	        <artifactId>junit-vintage-engine</artifactId>
 	        <scope>test</scope>
 	    </dependency>
+	    <dependency>
+		    <groupId>org.apache.maven.surefire</groupId>
+		    <artifactId>surefire-junit-platform</artifactId>
+		    <version>3.0.0-M4</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.jacoco</groupId>
+		    <artifactId>jacoco-maven-plugin</artifactId>
+		    <version>0.8.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -136,14 +146,70 @@
 							<arguments>--config webpack.config.js -p --env.version=${project.version}</arguments>
 						</configuration>
 					</execution>
+					<execution>
+						<id>run tests</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>test -- --coverage</arguments>
+							<environmentVariables>
+	                            <CI>true</CI>
+	                        </environmentVariables>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
-			<plugin>  
+			<!-- <plugin>  
 		        <groupId>org.apache.maven.plugins</groupId>  
 		        <artifactId>maven-surefire-plugin</artifactId>
 		        <configuration>  
 		          <skipTests>true</skipTests>  
 		        </configuration>  
+			</plugin> -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<!-- <configuration>
+					<includes>
+						<include>com/**/*</include>
+					</includes>
+				</configuration> -->
+				<executions>
+					<execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <!-- <execution>
+                        <id>default-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution> -->
+					<!-- <execution>
+						<id>pre-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution> -->
+					<execution>
+						<id>report</id>
+						<phase>install</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

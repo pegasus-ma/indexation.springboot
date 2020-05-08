@@ -23,7 +23,7 @@ public class DeleteResponseTest {
 		List<String> urlsDeleted = new ArrayList<String>();
 		urlsDeleted.add(urlString);
 		deleteResponse.setUrlsDeleted(urlsDeleted);
-		assertSame("Failure", urlString, deleteResponse.getUrlsDeleted());
+		assertSame("Failure", urlsDeleted, deleteResponse.getUrlsDeleted());
 	}
 
 	@Test
@@ -32,7 +32,7 @@ public class DeleteResponseTest {
 		List<String> urlsDeleted = new ArrayList<String>();
 		urlsDeleted.add(urlString);
 		deleteResponse.setUrlsDeleted(urlsDeleted);
-		assertSame("Failure", urlString, deleteResponse.getUrlsDeleted());
+		assertSame("Failure", urlsDeleted, deleteResponse.getUrlsDeleted());
 	}
 
 }

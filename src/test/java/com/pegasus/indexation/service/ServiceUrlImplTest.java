@@ -5,11 +5,18 @@ import static org.junit.Assert.assertEquals;
 import java.util.UUID;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.pegasus.indexation.dao.IDAOUrl;
 import com.pegasus.indexation.entity.Url;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@WebAppConfiguration
 public class ServiceUrlImplTest {
     
     @Autowired
@@ -22,7 +29,10 @@ public class ServiceUrlImplTest {
     public final void testSave() {
         Url url = new Url();
         url.setId(UUID.randomUUID().toString());
-        daoUrl.save(url);
+        Url savedUrl = daoUrl.save(url);
+        assertEquals("Failure", savedUrl.getId(), url.getId());
+        assertEquals("Failure", savedUrl.getUrl(), url.getUrl());
+        assertEquals("Failure", savedUrl.getWord(), url.getWord());
     }
 
     @Test
