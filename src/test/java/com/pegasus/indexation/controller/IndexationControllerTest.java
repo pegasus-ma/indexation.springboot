@@ -40,6 +40,10 @@ public class IndexationControllerTest {
         request2.setUrl("http://www.rfi.fr/fr/");
         request2.setWord("Unmotquinexistepas");
         ResponseEntity<PostResponse> response2;
+        PostRequest request3 = new PostRequest();
+        request3.setUrl("http://azertyuiop/");
+        request3.setWord("Unmotquinexistepas");
+        ResponseEntity<PostResponse> response3;
         
 		response = indexationController.postCheck(request);
 		assertTrue("Failure", (response.getStatusCodeValue() == 200 && (response.getBody().getState() == "rejected" || response.getBody().getState() == "accepted")) 
@@ -48,6 +52,8 @@ public class IndexationControllerTest {
 		response2 = indexationController.postCheck(request2);
 		assertTrue("Failure", (response2.getStatusCodeValue() == 200 && response2.getBody().getState() == "accepted")
 				|| (response2.getStatusCodeValue() == 500 && (response2.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response2.getBody().getState().length() >= 0)));
+		response3 = indexationController.postCheck(request3);
+		assertTrue("Failure", response3.getStatusCodeValue() == 500);
     }
 
     @Test
