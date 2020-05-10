@@ -31,16 +31,26 @@ public class IndexationControllerTest {
 
     @Test
     public final void testPostCheck() {
+    	daoUrl.deleteAll();
+    	
         PostRequest request = new PostRequest();
         request.setUrl("http://www.rfi.fr/fr/");
         request.setWord("Coronavirus");
         ResponseEntity<PostResponse> response;
+        PostRequest request2 = new PostRequest();
+        request2.setUrl("http://www.rfi.fr/fr/");
+        request2.setWord("Unmotquinexistepas");
+        ResponseEntity<PostResponse> response2;
         try {
 			response = indexationController.postCheck(request);
-			assertTrue("Failure", response.getStatusCodeValue() == 200 && (response.getBody().getState() == "rejected" || response.getBody().getState() == "accepted"));
-			assertTrue("Failure", response.getStatusCodeValue() == 500 && (response.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response.getBody().getState().length() >= 0));
+			assertTrue("Failure", (response.getStatusCodeValue() == 200 && (response.getBody().getState() == "rejected" || response.getBody().getState() == "accepted")) 
+					|| (response.getStatusCodeValue() == 500 && (response.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response.getBody().getState().length() >= 0)));
+			
+			response2 = indexationController.postCheck(request2);
+			assertTrue("Failure", (response2.getStatusCodeValue() == 200 && response2.getBody().getState() == "accepted")
+					|| (response2.getStatusCodeValue() == 500 && (response2.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response2.getBody().getState().length() >= 0)));
 		} catch (Exception e) {
-			fail("Exception");
+			fail(e.toString());
 		}
     }
 
@@ -48,16 +58,16 @@ public class IndexationControllerTest {
     public final void testGetContent() {
     	daoUrl.deleteAll();
     	
-    	PostRequest request = new PostRequest();
-        request.setUrl("http://www.rfi.fr/fr/");
-        request.setWord("Coronavirus");
-        indexationController.postCheck(request);
-        request.setUrl("http://www.rfi.fr/fr/test2");
-        request.setWord("Coronavirus22");
-        indexationController.postCheck(request);
-        request.setUrl("http://www.rfi.fr/fr/test3");
-        request.setWord("Coronavirus333");
-        indexationController.postCheck(request);
+    	PostRequest postRequest = new PostRequest();
+    	postRequest.setUrl("http://www.rfi.fr/fr/");
+    	postRequest.setWord("Unmotquinexistepas1");
+        indexationController.postCheck(postRequest);
+        postRequest.setUrl("http://www.rfi.fr/fr/");
+        postRequest.setWord("Unmotquinexistepas2");
+        indexationController.postCheck(postRequest);
+        postRequest.setUrl("http://www.rfi.fr/fr/");
+        postRequest.setWord("Unmotquinexistepas3");
+        indexationController.postCheck(postRequest);
         
         
         ResponseEntity<GetResponse> response;
@@ -66,7 +76,7 @@ public class IndexationControllerTest {
 			assertTrue("Failure", response.getStatusCodeValue() == 200 || response.getStatusCodeValue() == 204);
 			assertTrue("Failure", response.getBody().getUrlsFound().size() == 3);
 		} catch (Exception e) {
-			fail("Exception");
+			fail(e.toString());
 		}
     }
 
@@ -75,26 +85,26 @@ public class IndexationControllerTest {
     	
     	daoUrl.deleteAll();
     	
-    	PostRequest request = new PostRequest();
-        request.setUrl("http://www.rfi.fr/fr/");
-        request.setWord("Coronavirus");
-        indexationController.postCheck(request);
-        request.setUrl("http://www.rfi.fr/fr/test2");
-        request.setWord("Coronavirus22");
-        indexationController.postCheck(request);
-        request.setUrl("http://www.rfi.fr/fr/test3");
-        request.setWord("Coronavirus333");
-        indexationController.postCheck(request);
+    	PostRequest postRequest = new PostRequest();
+    	postRequest.setUrl("http://www.rfi.fr/fr/");
+    	postRequest.setWord("Unmotquinexistepas1");
+        indexationController.postCheck(postRequest);
+        postRequest.setUrl("http://www.rfi.fr/fr/");
+        postRequest.setWord("Unmotquinexistepas2");
+        indexationController.postCheck(postRequest);
+        postRequest.setUrl("http://www.rfi.fr/fr/");
+        postRequest.setWord("Unmotquinexistepas3");
+        indexationController.postCheck(postRequest);
     	
-        DeleteRequest requestD = new DeleteRequest();
+        DeleteRequest request = new DeleteRequest();
         request.setUrl("http://www.rfi.fr/fr/");
         ResponseEntity<DeleteResponse> response;
         try {
-			response = indexationController.deleteContent(requestD);
+			response = indexationController.deleteContent(request);
 			assertTrue("Failure", response.getStatusCodeValue() == 200 || response.getStatusCodeValue() == 204);
-			assertTrue("Failure", response.getBody().getUrlsDeleted().size() == 1);
+			assertTrue("Failure", response.getBody().getUrlsDeleted().size() == 3);
 		} catch (Exception e) {
-			fail("Exception");
+			fail(e.toString());
 		}
     }
 
