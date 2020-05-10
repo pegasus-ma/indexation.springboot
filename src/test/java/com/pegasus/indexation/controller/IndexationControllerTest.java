@@ -1,7 +1,6 @@
 package com.pegasus.indexation.controller;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,22 +40,24 @@ public class IndexationControllerTest {
         request2.setUrl("http://www.rfi.fr/fr/");
         request2.setWord("Unmotquinexistepas");
         ResponseEntity<PostResponse> response2;
-        try {
-			response = indexationController.postCheck(request);
-			assertTrue("Failure", (response.getStatusCodeValue() == 200 && (response.getBody().getState() == "rejected" || response.getBody().getState() == "accepted")) 
-					|| (response.getStatusCodeValue() == 500 && (response.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response.getBody().getState().length() >= 0)));
-			
-			response2 = indexationController.postCheck(request2);
-			assertTrue("Failure", (response2.getStatusCodeValue() == 200 && response2.getBody().getState() == "accepted")
-					|| (response2.getStatusCodeValue() == 500 && (response2.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response2.getBody().getState().length() >= 0)));
-		} catch (Exception e) {
-			fail(e.toString());
-		}
+        
+		response = indexationController.postCheck(request);
+		assertTrue("Failure", (response.getStatusCodeValue() == 200 && (response.getBody().getState() == "rejected" || response.getBody().getState() == "accepted")) 
+				|| (response.getStatusCodeValue() == 500 && (response.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response.getBody().getState().length() >= 0)));
+		
+		response2 = indexationController.postCheck(request2);
+		assertTrue("Failure", (response2.getStatusCodeValue() == 200 && response2.getBody().getState() == "accepted")
+				|| (response2.getStatusCodeValue() == 500 && (response2.getBody().getState() == "Proxy confuguration problem : define a proxy in the file indexation.properties." || response2.getBody().getState().length() >= 0)));
     }
 
     @Test
     public final void testGetContent() {
     	daoUrl.deleteAll();
+    	
+    	ResponseEntity<GetResponse> response;
+    	
+		response = indexationController.getContent();
+		assertTrue("Failure", response.getStatusCodeValue() == 204);
     	
     	PostRequest postRequest = new PostRequest();
     	postRequest.setUrl("http://www.rfi.fr/fr/");
@@ -70,14 +71,10 @@ public class IndexationControllerTest {
         indexationController.postCheck(postRequest);
         
         
-        ResponseEntity<GetResponse> response;
-        try {
-			response = indexationController.getContent();
-			assertTrue("Failure", response.getStatusCodeValue() == 200 || response.getStatusCodeValue() == 204);
-			assertTrue("Failure", response.getBody().getUrlsFound().size() == 3);
-		} catch (Exception e) {
-			fail(e.toString());
-		}
+        ResponseEntity<GetResponse> response2;
+		response2 = indexationController.getContent();
+		assertTrue("Failure", response2.getStatusCodeValue() == 200 || response2.getStatusCodeValue() == 204);
+		assertTrue("Failure", response2.getBody().getUrlsFound().size() == 3);
     }
 
     @Test
@@ -85,6 +82,13 @@ public class IndexationControllerTest {
     	
     	daoUrl.deleteAll();
     	
+    	DeleteRequest request = new DeleteRequest();
+        request.setUrl("http://www.rfi.fr/fr/");
+        ResponseEntity<DeleteResponse> response;
+        
+		response = indexationController.deleteContent(request);
+		assertTrue("Failure", response.getStatusCodeValue() == 204);
+    	
     	PostRequest postRequest = new PostRequest();
     	postRequest.setUrl("http://www.rfi.fr/fr/");
     	postRequest.setWord("Unmotquinexistepas1");
@@ -96,16 +100,14 @@ public class IndexationControllerTest {
         postRequest.setWord("Unmotquinexistepas3");
         indexationController.postCheck(postRequest);
     	
-        DeleteRequest request = new DeleteRequest();
-        request.setUrl("http://www.rfi.fr/fr/");
-        ResponseEntity<DeleteResponse> response;
-        try {
-			response = indexationController.deleteContent(request);
-			assertTrue("Failure", response.getStatusCodeValue() == 200 || response.getStatusCodeValue() == 204);
-			assertTrue("Failure", response.getBody().getUrlsDeleted().size() == 3);
-		} catch (Exception e) {
-			fail(e.toString());
-		}
+        DeleteRequest request2 = new DeleteRequest();
+        request2.setUrl("http://www.rfi.fr/fr/");
+        ResponseEntity<DeleteResponse> response2;
+    
+		response2 = indexationController.deleteContent(request2);
+		assertTrue("Failure", response2.getStatusCodeValue() == 200 || response2.getStatusCodeValue() == 204);
+		assertTrue("Failure", response2.getBody().getUrlsDeleted().size() == 3);
+
     }
 
 }
