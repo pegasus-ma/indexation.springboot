@@ -11,4 +11,4 @@ ARG JAR_FILE
 COPY ${JAR_FILE} /home/target/app.jar
 
 #ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-CMD ["java", "-jar", "/home/target/indexation-0-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/home/target/app.jar"]
