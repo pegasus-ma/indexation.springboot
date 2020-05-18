@@ -223,7 +223,7 @@
 							<goal>docker</goal>
 						</goals>
 						<configuration>
-							<arguments>build -f DockerFile -t ${project.version}:${project.version} .</arguments>
+							<arguments>build -f DockerFile -t ${project.artifactId}:${project.version} .</arguments>
 						</configuration>
 					</execution>
 				</configuration>
