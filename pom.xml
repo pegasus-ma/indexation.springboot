@@ -237,7 +237,7 @@
                 <version>1.2.2</version>
                 <configuration>
 					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
-					<dockerDirectory>DockerFile</dockerDirectory>
+					<dockerDirectory>src/main/resources/DockerFile</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>target</targetPath>
