@@ -7,8 +7,8 @@ LABEL name="Pegasus Indexation Image" \
 	
 RUN mkdir /home/target
 
-ARG JAR_FILE
-COPY ${JAR_FILE} /home/target/app.jar
+#ARG JAR_FILE
+COPY target/indexation-0-SNAPSHOT.jar /home/target/app.jar
 
 #ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 CMD ["java", "-jar", "/home/target/app.jar"]
