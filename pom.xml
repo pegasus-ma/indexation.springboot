@@ -217,15 +217,16 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.0</version>
                 <configuration>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-						</goals>
-						<configuration>
-							<arguments>-f DockerFile -t ${docker.image.prefix}/${project.artifactId}:${project.version} .</arguments>
-						</configuration>
-					</execution>
+					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
+					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
+					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
 				</configuration>
 			</plugin>
 		</plugins>
