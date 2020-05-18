@@ -217,11 +217,15 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.0</version>
                 <configuration>
-					<repository>${docker.image.prefix}/${project.artifactId}</repository>
- 					 <tag>${project.version}</tag> <!-- default tag latest -->
-					<buildArgs>
-						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-					</buildArgs>
+					<execution>
+						<id>docker-build</id>
+						<goals>
+							<goal>docker</goal>
+						</goals>
+						<configuration>
+							<arguments>build -f DockerFile -t ${project.version}:${project.version} .</arguments>
+						</configuration>
+					</execution>
 				</configuration>
 			</plugin>
 		</plugins>
