@@ -212,17 +212,35 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
                 <groupId>com.spotify</groupId>
-                <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.4.0</version>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.2</version>
                 <configuration>
 					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
+					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
+					<workdir>target</workdir>
 					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
-							<targetPath>/</targetPath>
+							<targetPath>target</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin> -->
+			<plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.2.2</version>
+                <configuration>
+					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
+					<dockerDirectory>DockerFile</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>target</targetPath>
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
