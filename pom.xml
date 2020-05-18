@@ -220,11 +220,11 @@
 					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
-					<workdir>target</workdir>
-					<entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+					<workdir>/home/target</workdir>
+					<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
-							<targetPath>target</targetPath>
+							<targetPath>/home/target</targetPath>
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
