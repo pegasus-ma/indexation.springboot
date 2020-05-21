@@ -212,13 +212,11 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
-                	<username>pegasusma</username>
-	                <password>hma@bucares</password>
 					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
@@ -233,23 +231,24 @@
 					</resources>
 					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin>
-			<!-- <plugin>
+			</plugin> -->
+			<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
-					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
-					<dockerDirectory>src/main/resources/dockerDirectory</dockerDirectory>
+                	<dockerDirectory>/</dockerDirectory>
+					<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
-							<targetPath>target</targetPath>
+							<targetPath>/home/target</targetPath>
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin> -->
+			</plugin>
 		</plugins>
 	</build>
 </project>
