@@ -250,21 +250,6 @@
 					</resources>
 				</configuration>
 			</plugin> -->
-			<!-- <plugin>
-	            <groupId>com.spotify</groupId>
-	            <artifactId>dockerfile-maven-plugin</artifactId>
-	            <version>1.4.13</version>
-	            <configuration>
-	                <username>pegasusma</username>
-	                <password>hma@bucares</password>
-	                <useMavenSettingsForAuth>false</useMavenSettingsForAuth>
-	                <repository>${docker.image.prefix}/${project.artifactId}</repository>
-	                <tag>${project.version}</tag>
-	                <buildArgs>
-	                  <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-	                </buildArgs>
-	            </configuration>
-	        </plugin> -->
 		</plugins>
 	</build>
 </project>
