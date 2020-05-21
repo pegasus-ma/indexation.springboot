@@ -3,7 +3,7 @@ FROM adoptopenjdk/openjdk11:ubi
 MAINTAINER megasusma<hongyu.ma@hotmail.fr>
 
 LABEL name="Pegasus Indexation Image" \
-	build-date="20200518"
+	build-date="20200522"
 	
 ENV WORKPATH /home/target
 WORKDIR $WORKPATH

@@ -212,12 +212,13 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Docker build without Dockerfile -->
 			<!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
-					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
+					<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
@@ -232,6 +233,7 @@
 					<serverId>docker-hub</serverId>
 				</configuration>
 			</plugin> -->
+			<!-- Docker build with Dockerfile -->
 			<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
