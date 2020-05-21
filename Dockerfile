@@ -8,7 +8,7 @@ LABEL name="Pegasus Indexation Image" \
 ENV WORKPATH /home/target
 WORKDIR $WORKPATH
 
-#ARG JAR_FILE
-COPY target/indexation-0-SNAPSHOT.jar /home/target/app.jar
+ARG JAR_FILE
+COPY target/${JAR_FILE}.jar app.jar
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/home/target/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

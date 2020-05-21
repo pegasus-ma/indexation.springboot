@@ -212,7 +212,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+			<!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
@@ -231,8 +231,8 @@
 					</resources>
 					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin>
-			<!-- <plugin>
+			</plugin> -->
+			<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
@@ -245,9 +245,12 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
+					<buildArgs>
+				      	<JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+				    </buildArgs>
 					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin> -->
+			</plugin>
 		</plugins>
 	</build>
 </project>
