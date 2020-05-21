@@ -8,9 +8,10 @@ import IndexationResult from "bucares/components/indexation/result";
 
 render(
     <Provider store={store}>
-        <AppVersion/>
         <IndexationInput/>
 		<IndexationResult/>
+		<hr/>
+		<AppVersion/>
     </Provider>,
     document.getElementById('react') || document.createElement('div')
 );

@@ -20,7 +20,7 @@ export class AppVersion extends React.Component {
         const {t, app} = this.props;
         return (
             <div>
-                version {app.appInfo !== null ? app.appInfo.version : "none"}
+                Version : {app.appInfo !== null ? app.appInfo.version : "none"} (One of the properties shown)
             </div>
         )
     }
