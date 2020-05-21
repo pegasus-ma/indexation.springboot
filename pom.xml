@@ -217,6 +217,8 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
+                	<username>pegasusma</username>
+	                <password>hma@bucares</password>
 					<imageName>pegasusma/indexation:0-SNAPSHOT</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
@@ -247,7 +249,7 @@
 					</resources>
 				</configuration>
 			</plugin> -->
-			<plugin>
+			<!-- <plugin>
 	            <groupId>com.spotify</groupId>
 	            <artifactId>dockerfile-maven-plugin</artifactId>
 	            <version>1.4.13</version>
@@ -261,7 +263,7 @@
 	                  <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
 	                </buildArgs>
 	            </configuration>
-	        </plugin>
+	        </plugin> -->
 		</plugins>
 	</build>
 </project>
