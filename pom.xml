@@ -237,6 +237,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
+                	<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
