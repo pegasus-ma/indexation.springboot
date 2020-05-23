@@ -12,8 +12,8 @@ services:
  mysql:
   image: mysql
   environment:
-   MYSQL_DATABASE: test
-   MYSQL_ROOT_PASSWORD: root
+   MYSQL_DATABASE: root
+   MYSQL_ROOT_PASSWORD: hma@bucares
    MYSQL_ROOT_HOST: '%'
   ports:
    - "3306:3306"
