@@ -1,5 +1,5 @@
 version: "3.3"
-services: 
+services:
  nginx:
   image: nginx
   ports:
@@ -18,5 +18,5 @@ services:
   ports:
    - "3306:3306"
   restart: always
- indexation_1: 
+ indexation_1:
   image: pegasusma/indexation:0-SNAPSHOT
