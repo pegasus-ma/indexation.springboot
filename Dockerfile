@@ -11,4 +11,4 @@ WORKDIR $WORKPATH
 ARG JAR_FILE
 COPY target/${JAR_FILE}.jar ${JAR_FILE}.jar
 
-ENTRYPOINT ["java", "-jar", "${JAR_FILE}.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "${JAR_FILE}.jar"]
