@@ -4,7 +4,6 @@ services:
   image: nginx
   ports:
    - "80:80"
-   - "80:81"
   links:
    - mysql
    - indexation_1
