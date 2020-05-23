@@ -213,7 +213,7 @@
 				</executions>
 			</plugin>
 			<!-- Docker build without Dockerfile -->
-			<!-- <plugin>
+			<plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
@@ -232,9 +232,9 @@
 					</resources>
 					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin> -->
+			</plugin>
 			<!-- Docker build with Dockerfile -->
-			<plugin>
+			<!-- <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
@@ -254,7 +254,7 @@
 				    </buildArgs>
 					<serverId>docker-hub</serverId>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>
