@@ -9,6 +9,6 @@ ENV WORKPATH /home/target
 WORKDIR $WORKPATH
 
 ARG JAR_FILE
-COPY target/${JAR_FILE}.jar app.jar
+COPY target/${JAR_FILE}.jar ${JAR_FILE}.jar
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "${JAR_FILE}.jar"]
