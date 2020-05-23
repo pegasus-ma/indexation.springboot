@@ -1,20 +1,13 @@
 version: "3.3"
 services: 
- nginx_1:
+ nginx:
   image: nginx
   ports:
    - "80:80"
-  links:
-   - mysql
-   - indexation_1
-  volumes: 
-   - "./nginx/conf.d/:/etc/nginx/conf.d"
- nginx_2:
-  image: nginx
-  ports:
    - "80:81"
   links:
    - mysql
+   - indexation_1
    - indexation_2
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
