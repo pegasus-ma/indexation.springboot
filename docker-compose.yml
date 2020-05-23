@@ -21,9 +21,5 @@ services:
   restart: always
  indexation_1: 
   image: pegasusma/indexation:0-SNAPSHOT
-  links:
-   - mysql
  indexation_2: 
   image: pegasusma/indexation:0-SNAPSHOT
-  links:
-   - mysql
