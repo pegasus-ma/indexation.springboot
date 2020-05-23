@@ -7,7 +7,6 @@ services:
   links:
    - mysql
    - indexation_1
-   - indexation_2
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
  mysql:
@@ -20,6 +19,4 @@ services:
    - "3306:3306"
   restart: always
  indexation_1: 
-  image: pegasusma/indexation:0-SNAPSHOT
- indexation_2: 
   image: pegasusma/indexation:0-SNAPSHOT
