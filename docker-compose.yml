@@ -5,6 +5,7 @@ services:
   ports:
    - "80:80"
   links:
+   - mysql
    - indexation_1
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
@@ -19,6 +20,3 @@ services:
   restart: always
  indexation_1: 
   image: pegasusma/indexation:0-SNAPSHOT
-  depends_on:
-   - nginx
-   - mysql
