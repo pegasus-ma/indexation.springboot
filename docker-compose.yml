@@ -3,7 +3,7 @@ services:
  nginx:
   image: nginx
   ports:
-   - "80:80"
+   - "8080:8080"
   links:
    - indexation_1
   volumes: 
