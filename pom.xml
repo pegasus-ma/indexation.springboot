@@ -226,12 +226,19 @@
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
-					<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties" "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/home/target</targetPath>
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+					<resources>
+						<resource>
+							<targetPath>/home/target</targetPath>
+							<directory>${basedir}</directory>
+							<include>application.properties</include>
 						</resource>
 					</resources>
 					<serverId>docker-hub</serverId>
