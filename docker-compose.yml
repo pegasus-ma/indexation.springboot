@@ -5,8 +5,8 @@ services:
   ports:
    - "8080:8080"
   links:
-   - indexation_1
+   - indexation
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
- indexation_1:
+ indexation:
   image: pegasusma/indexation:0-SNAPSHOT
