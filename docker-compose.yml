@@ -3,10 +3,13 @@ services:
  nginx:
   image: nginx
   ports:
-   - "8080:8080"
-  links:
+   - "80:80"
+  depends_on:
    - indexation
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
  indexation:
   image: pegasusma/indexation:0-SNAPSHOT
+  restart: always
+  expose:
+   - "8080"
