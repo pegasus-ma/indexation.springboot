@@ -226,7 +226,7 @@
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
 					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
-					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties" "${project.build.finalName}.jar"]</entryPoint>
+					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/home/target</targetPath>
