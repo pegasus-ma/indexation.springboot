@@ -2,12 +2,12 @@
 
 spring.datasource.url=jdbc:mysql://mysql:3306/mysql
 spring.datasource.username=root
-spring.datasource.password=
+spring.datasource.password=hma@bucares
 
 2 - Modify the docker compose script using the corresponding connection to MySQL
 
 MYSQL_DATABASE: root
-MYSQL_ROOT_PASSWORD: 
+MYSQL_ROOT_PASSWORD: hma@bucares
 3 - Add into maven settings.xml using the corresponding connection to MySQL
 
 <pluginGroups>
@@ -20,7 +20,7 @@ MYSQL_ROOT_PASSWORD:
 	<server>
 	  <id>docker-hub</id>
 	  <username>pegasusma</username>
-	  <password></password>
+	  <password>hma@bucares</password>
 	  <configuration>
 		  <email>hongyu.ma@hotmail.fr</email>
 	  </configuration>
