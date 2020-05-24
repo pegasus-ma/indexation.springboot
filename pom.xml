@@ -224,7 +224,7 @@
                 <configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 					<baseImage>adoptopenjdk/openjdk11:ubi</baseImage>
-					<maintainer>megasusma hongyu.ma@hotmail.fr</maintainer>
+					<maintainer>pegasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
 					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
