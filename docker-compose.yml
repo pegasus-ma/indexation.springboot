@@ -6,6 +6,7 @@ services:
    - "80:80"
   depends_on:
    - indexation1
+   - indexation2
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
  indexation1:
@@ -13,3 +14,8 @@ services:
   restart: always
   expose:
    - "8080"
+ indexation2:
+  image: pegasusma/indexation:0-SNAPSHOT
+  restart: always
+  expose:
+   - "8081"
