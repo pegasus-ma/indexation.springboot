@@ -233,8 +233,6 @@
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
-					</resources>
-					<resources>
 						<resource>
 							<targetPath>/home/target</targetPath>
 							<directory>${basedir}</directory>
