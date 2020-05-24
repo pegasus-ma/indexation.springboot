@@ -5,10 +5,10 @@ services:
   ports:
    - "80:80"
   depends_on:
-   - indexation_1
+   - indexation1
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
- indexation_1:
+ indexation1:
   image: pegasusma/indexation:0-SNAPSHOT
   restart: always
   expose:
