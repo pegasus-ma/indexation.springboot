@@ -27,13 +27,13 @@ MYSQL_ROOT_PASSWORD: hma@bucares
 	</server>
 </servers>
 
-2 - Package command
+4 - Package command
 
 >mvn clean package docker:build -DpushImage
 
 The images generated id : pegasusma/indexation:0-SNAPSHOT
 
-3 - Docker-compose
+5 - Docker-compose
 
 >docker-compose up
 
