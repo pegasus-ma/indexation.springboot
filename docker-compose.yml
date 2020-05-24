@@ -9,13 +9,26 @@ services:
    - indexation2
   volumes: 
    - "./nginx/conf.d/:/etc/nginx/conf.d"
+ mysql:
+  image: mysql
+  environment:
+    MYSQL_DATABASE: root
+    MYSQL_ROOT_PASSWORD: hma@bucares
+    MYSQL_ROOT_HOST: '%'
+  ports:
+   - "3306:3306"
+  restart: always
  indexation1:
   image: pegasusma/indexation:0-SNAPSHOT
   restart: always
   expose:
    - "8080"
+  depends_on:
+   - mysql
  indexation2:
   image: pegasusma/indexation:0-SNAPSHOT
   restart: always
   expose:
    - "8081"
+  depends_on:
+   - mysql
