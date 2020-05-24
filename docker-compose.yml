@@ -12,4 +12,4 @@ services:
   image: pegasusma/indexation:0-SNAPSHOT
   restart: always
   expose:
-   - "8080"
+   - "80"
