@@ -227,6 +227,9 @@
 					<maintainer>pegasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
 					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties", "${project.build.finalName}.jar"]</entryPoint>
+					<buildArgs>
+				      	<BUILD_VERSION>${project.build.version}</BUILD_VERSION>
+				    </buildArgs>
 					<resources>
 						<resource>
 							<targetPath>/home/target</targetPath>
