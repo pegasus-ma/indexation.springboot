@@ -15,7 +15,7 @@
 		<log.file>/opt/boilerplate/logs/app.log</log.file>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>11</java.version>
+		<java.version>8</java.version>
 		<docker.image.prefix>pegasusma</docker.image.prefix>
 	</properties>
 
