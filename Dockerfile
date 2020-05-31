@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:ubi
+FROM adoptopenjdk/openjdk8:ubi
 
 MAINTAINER megasusma<hongyu.ma@hotmail.fr>
 
