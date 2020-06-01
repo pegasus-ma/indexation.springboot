@@ -19,14 +19,14 @@ services:
    - "3306:3306"
   restart: always
  indexation1:
-  image: 161.35.220.171:8083/repository/docker-private/indexation:0-SNAPSHOT
+  image: 161.35.220.171:8083/repository/docker-private/indexation:1-SNAPSHOT
   restart: always
   expose:
    - "8080"
   depends_on:
    - mysql
  indexation2:
-  image: 161.35.220.171:8083/repository/docker-private/indexation:0-SNAPSHOT
+  image: 161.35.220.171:8083/repository/docker-private/indexation:1-SNAPSHOT
   restart: always
   expose:
    - "8079"
