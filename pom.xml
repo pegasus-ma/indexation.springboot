@@ -229,7 +229,7 @@
 					<baseImage>adoptopenjdk/openjdk8:ubi</baseImage>
 					<maintainer>admin hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
-					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties,version.properties", "${project.build.finalName}.jar"]</entryPoint>
+					<entryPoint>["java", "-jar", "--spring.config.location=application.properties,version.properties", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
 						<resource>
 							<targetPath>/home/target</targetPath>
