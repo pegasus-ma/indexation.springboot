@@ -1,39 +1,10 @@
-1 - Modify the external properties file using the corresponding connection to MySQL
+1 - daemon.json
 
-spring.datasource.url=jdbc:mysql://mysql:3306/mysql
-spring.datasource.username=root
-spring.datasource.password=hma@bucares
+>vi /etc/docker/daemon.json
+{ "insecure-registries":["161.35.220.171:8083", "161.35.220.171:8081"] }
 
-2 - Modify the docker compose script using the corresponding connection to MySQL
 
-MYSQL_DATABASE: root
-MYSQL_ROOT_PASSWORD: hma@bucares
-3 - Add into maven settings.xml using the corresponding connection to MySQL
-
-<pluginGroups>
-	<!-- for docker -->
-	<pluginGroup>com.spotify</pluginGroup>
-</pluginGroups>
-
-<servers>
-	<!-- for pushing -->
-	<server>
-	  <id>docker-hub</id>
-	  <username>pegasusma</username>
-	  <password>hma@bucares</password>
-	  <configuration>
-		  <email>hongyu.ma@hotmail.fr</email>
-	  </configuration>
-	</server>
-</servers>
-
-4 - Package command
-
->mvn clean package docker:build -DpushImage
-
-The images generated id : pegasusma/indexation:0-SNAPSHOT
-
-5 - Docker-compose
+0 - Docker-compose
 
 >docker-compose up
 
