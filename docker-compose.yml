@@ -19,14 +19,14 @@ services:
    - "3306:3306"
   restart: always
  indexation1:
-  image: pegasusma/indexation:0-SNAPSHOT
+  image: 127.0.0.1:8083/repository/docker-private/indexation:0-SNAPSHOT
   restart: always
   expose:
    - "8080"
   depends_on:
    - mysql
  indexation2:
-  image: pegasusma/indexation:0-SNAPSHOT
+  image: 127.0.0.1:8083/repository/docker-private/indexation:0-SNAPSHOT
   restart: always
   expose:
    - "8081"
