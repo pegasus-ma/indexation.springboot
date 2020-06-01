@@ -17,7 +17,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>8</java.version>
 		<docker.image.prefix>pegasusma</docker.image.prefix>
-		<docker.repostory>127.0.0.1:8083/repository</docker.repostory>
+		<docker.repostory>127.0.0.1:8081/repository</docker.repostory>
 		<docker.registry.name>docker-private</docker.registry.name>
 	</properties>
 
