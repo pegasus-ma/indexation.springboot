@@ -3,8 +3,17 @@
 >vi /etc/docker/daemon.json
 { "insecure-registries":["161.35.220.171:8083", "161.35.220.171:8081"] }
 
+2 - Docker login
 
-0 - Docker-compose
+>chmod 777 dockerLogin.sh
+>./dockerLogin.sh
+
+3 - Docker init : to execute after every modification
+
+>chmod 777 dockerInit.sh
+>./dockerInit.sh
+
+4 - Docker-compose
 
 >docker-compose up
 
