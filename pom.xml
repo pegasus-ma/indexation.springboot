@@ -225,7 +225,8 @@
                 <version>1.2.2</version>
                 <configuration>
 					<!-- <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName> -->
-					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+					<!-- <imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName> -->
+					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}</imageName>
 					<baseImage>adoptopenjdk/openjdk8:ubi</baseImage>
 					<maintainer>admin hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
