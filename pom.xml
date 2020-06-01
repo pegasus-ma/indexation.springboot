@@ -17,6 +17,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>8</java.version>
 		<docker.image.prefix>pegasusma</docker.image.prefix>
+		<docker.repostory>161.35.220.171:8081/repository</docker.repostory>
+		<docker.registry.name>docker-private</docker.registry.name>
 	</properties>
 
 	<parent>
@@ -223,9 +225,9 @@
                 <version>1.2.2</version>
                 <configuration>
 					<!-- <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName> -->
-					<imageName>${project.artifactId}:${project.version}</imageName>
+					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
 					<baseImage>adoptopenjdk/openjdk8:ubi</baseImage>
-					<maintainer>pegasusma hongyu.ma@hotmail.fr</maintainer>
+					<maintainer>admin hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
 					<entryPoint>["java", "-jar", "-Dspring.config.location=application.properties", "${project.build.finalName}.jar"]</entryPoint>
 					<resources>
@@ -240,7 +242,8 @@
 							<include>application.properties</include>
 						</resource>
 					</resources>
-					<serverId>docker-hub</serverId>
+					<registryUrl>${docker.repostory}/${docker.registry.name}</registryUrl>
+					<serverId>docker-private</serverId>
 				</configuration>
 			</plugin>
 			<!-- Docker build with Dockerfile -->
