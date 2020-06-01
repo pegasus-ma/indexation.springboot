@@ -222,7 +222,8 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.2.2</version>
                 <configuration>
-					<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+					<!-- <imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName> -->
+					<imageName>${project.artifactId}:${project.version}</imageName>
 					<baseImage>adoptopenjdk/openjdk8:ubi</baseImage>
 					<maintainer>pegasusma hongyu.ma@hotmail.fr</maintainer>
 					<workdir>/home/target</workdir>
