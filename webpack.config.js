@@ -34,7 +34,7 @@ module.exports = (env, mode = "") => ({
     plugins: [
         new webpack.DefinePlugin({
             'env': {
-                'VERSION': JSON.stringify(env && env.version ? env.version : '0-SNAPSHOT'),
+                'VERSION': JSON.stringify(env && env.version ? env.version : 'UNKNOWN'),
                 'MODE': JSON.stringify(mode)
             }
         })
