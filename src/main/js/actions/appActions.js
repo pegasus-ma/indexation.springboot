@@ -20,9 +20,9 @@ export const getAppInfo = () => (
     (dispatch) => {
         dispatch(setAppInfoPending());
         return axios.get(APP_VERSION_URL).then(response => {
-            dispatch(setAppInfoData(env.VERSION));
+            dispatch(setAppInfoData("unkn"));
         }).catch(() => {
-            dispatch(setAppInfoRejected());
+            dispatch(setAppInfoData("unkn"));
         })
     }
 );
