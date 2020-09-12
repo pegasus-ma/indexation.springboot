@@ -51,7 +51,7 @@
     "classnames": "2.2.6",
     "expect": "24.8.0",
     "fetch-mock": "^9.4.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "prop-types": "15.7.2",
     "react-form-validator-core": "0.6.4",
     "react-material-ui-form-validator": "2.0.9",
